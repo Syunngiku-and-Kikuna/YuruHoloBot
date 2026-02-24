@@ -127,6 +127,7 @@ class CTranslate(commands.Cog):
 
     @commands.Cog.listener("on_message")
     async def on_message(self, message: discord.Message):
+        return
         if message.author.bot:
             return
         if message.content.startswith("Ctrl"):
@@ -158,7 +159,7 @@ class CTranslate(commands.Cog):
                 view.add_item(delete_button)
                 await message.reply(f"【<:barrier:1378657622185480244>翻訳失敗/エラー発生<:barrier:1378657622185480244>】\n{e}", view=view)
 
-    @app_commands.command(name="ctranslate", description="各言語に翻訳できます(Can be translated into any language)")
+    @app_commands.command(name="translate", description="各言語に翻訳できます(Can be translated into any language)")
     @app_commands.describe(text="翻訳したい文章(Text-to-be-translated)", language="翻訳先言語(translation-target-language)")
     async def ctranslate(self, interaction: discord.Interaction, text: str, language: str = None):
         await interaction.response.defer(thinking=True)

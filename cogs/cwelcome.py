@@ -22,7 +22,7 @@ class CWelcome(commands.Cog):
                 color=discord.Color.green()
             )
             welcome_embed.set_footer(text=f"なおこのメッセージは{(datetime.now() + timedelta(days=1)).strftime('%Y/%m/%d %H:%M')}に自動で削除されます。")
-            await channel.send(f"{after.mention}さんがやってきました！", embed=welcome_embed, silent=True)
+            await channel.send(f"{after.mention}さんがやってきました！", embed=welcome_embed, silent=True, delete_after=86400)
 
 
 async def setup(bot: commands.Bot):
