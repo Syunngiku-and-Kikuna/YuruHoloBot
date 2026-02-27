@@ -18,7 +18,7 @@ class CWelcome(commands.Cog):
 
             channel = await self.bot.fetch_channel(config.channels.invite)  # ようこそチャンネルを取得
             welcome_embed = discord.Embed(
-                description=f"## ゆるホロ鯖へようこそ！\nまずは<#{config.channels.role_set}>で自分の推しロールを設定しましょう(^O^)/",
+                description=f"## ゆるホロ鯖へようこそ！\nまずは<#{config.channels.role_set_jp}>/<#{config.channels.role_set_en}>/<#{config.channels.role_set_id}>で自分の推しロールを設定しましょう(^O^)/",
                 color=discord.Color.green()
             )
             welcome_embed.set_footer(text=f"なおこのメッセージは{(datetime.now() + timedelta(days=1)).strftime('%Y/%m/%d %H:%M')}に自動で削除されます。")

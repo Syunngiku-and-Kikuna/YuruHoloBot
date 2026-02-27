@@ -64,27 +64,47 @@ class Stickych (Base):
 #     bool8 = Column(Boolean, default=False)
 #     bool9 = Column(Boolean, default=False)
 #     bool10 = Column(Boolean, default=False)
-# 
-# 
 
 
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
-# 
-# 
+
+
+DATABASE_URL3 = 'sqlite:///database/fes_expo_7th.db'  # データベースの種類と名前をここで指定できます
+engine3 = create_engine(DATABASE_URL3)  # データベースエンジンを作成
+Base3 = declarative_base()            # データベースの親クラスを作成
+
+
+class Fes_Expo_7th_db(Base3):
+    __tablename__ = 'usersgacha'
+    no = Column(Integer, primary_key=True)
+    userid = Column(Integer, default=0)
+    username = Column(String, default="")
+    day1 = Column(Boolean, default=False)
+    day2 = Column(Boolean, default=False)
+    day3 = Column(Boolean, default=False)
+    stage1 = Column(Boolean, default=False)
+    stage2 = Column(Boolean, default=False)
+    stage3 = Column(Boolean, default=False)
+    stage4 = Column(Boolean, default=False)
+
+
+Base3.metadata.create_all(engine3)
+Session3 = sessionmaker(bind=engine3)
+session3 = Session3()
 # DATABASE_URL2 = 'sqlite:///ore_gacha.db'  # データベースの種類と名前をここで指定できます
 # engine2 = create_engine(DATABASE_URL2)  # データベースエンジンを作成
 # Base2 = declarative_base()            # データベースの親クラスを作成
-# 
-# 
+
+
 # class Oregacha(Base2):
 #     __tablename__ = 'usersgacha'
 #     no = Column(Integer, primary_key=True)
 #     userid = Column(Integer)
 #     username = Column(String)
 #     allcount = Column(Integer, default=0)
-# 
+
 #     netheritei = Column(Integer, default=0)
 #     netherites = Column(Integer, default=0)
 #     lapis = Column(Integer, default=0)
@@ -99,7 +119,7 @@ session = Session()
 #     breaking_pickaxe = Column(Integer, default=0)
 #     broken_pickaxe = Column(Integer, default=0)
 #     death = Column(Integer, default=0)
-# 
+
 #     beacon = Column(Integer, default=0)
 #     netheriteb = Column(Integer, default=0)
 #     lapisb = Column(Integer, default=0)
@@ -114,9 +134,9 @@ session = Session()
 #     broken_pickaxe9 = Column(Integer, default=0)
 #     death9 = Column(Integer, default=0)
 #     unkownworld = Column(Integer, default=0)
-# 
+
 #     dailygacha = Column(Integer, default=0)
-# 
+
 #     ogstr1 = Column(String, default="")  # ogstr1 : cog.core_gacha.py使用中(１日のガチャによる結果表示)
 #     ogstr2 = Column(String, default="")
 #     ogstr3 = Column(String, default="")
@@ -142,8 +162,8 @@ session = Session()
 #     ogbool8 = Column(Boolean, default=False)
 #     ogbool9 = Column(Boolean, default=False)
 #     ogbool10 = Column(Boolean, default=False)
-# 
-# 
+
+
 # Base2.metadata.create_all(engine2)
 # Session2 = sessionmaker(bind=engine2)
 # session2 = Session2()
