@@ -91,7 +91,8 @@ class Fes_Expo_7th(commands.Cog):
 
     async def send_message(self, interaction: discord.Interaction, message: discord.Message) -> None:
         targetdb = session3.query(Fes_Expo_7th_db).filter_by(userid=message.author.id).first()
-        DESC = f"""
+        DESC = f"""7th-Fes/EXPO\n{message.author.mention}さんの参加予定確認
+```
 Fes Stage1: {"参加   〇" if targetdb.stage1 is True else "不参加 ✖"}
 Fes Stage2: {"参加   〇" if targetdb.stage2 is True else "不参加 ✖"}
 Fes Stage3: {"参加   〇" if targetdb.stage3 is True else "不参加 ✖"}
@@ -99,9 +100,9 @@ Fes Stage4: {"参加   〇" if targetdb.stage4 is True else "不参加 ✖"}
 EXPO Day1 : {"参加   〇" if targetdb.day1 is True else "不参加 ✖"}
 EXPO Day2 : {"参加   〇" if targetdb.day2 is True else "不参加 ✖"}
 EXPO Day3 : {"参加   〇" if targetdb.day3 is True else "不参加 ✖"}
+```
 """
         embed = discord.Embed(
-            title=f"7th-Fes/EXPO\n{message.author.mention}さんの参加予定確認",
             description=DESC,
             color=0x5EDEEC
         )
@@ -170,7 +171,7 @@ EXPO Day3 : {"参加   〇" if targetdb.day3 is True else "不参加 ✖"}
             if not targetdb:
                 await interaction.response.send_message(f"{target.display_name}さんの参加予定は登録されていません。", ephemeral=True)
                 return
-            DESC = f"""
+            DESC = f"""7th-Fes/EXPO\n{target.mention}さんの参加予定確認
 ```
 Fes Stage1: {"参加   〇" if targetdb.stage1 is True else "不参加 ✖"}
 Fes Stage2: {"参加   〇" if targetdb.stage2 is True else "不参加 ✖"}
@@ -182,7 +183,6 @@ EXPO Day3 : {"参加   〇" if targetdb.day3 is True else "不参加 ✖"}
 ```
 """
             embed = discord.Embed(
-                title=f"7th-Fes/EXPO\n{target.mention}さんの参加予定確認",
                 description=DESC,
                 color=0x5EDEEC
             )
@@ -193,7 +193,7 @@ EXPO Day3 : {"参加   〇" if targetdb.day3 is True else "不参加 ✖"}
             if not targetdb:
                 await interaction.response.send_message(f"{target.display_name}さんの参加予定は登録されていません。", ephemeral=True)
                 return
-            DESC = f"""参加予定
+            DESC = f"""7th-Fes/EXPO\n{target.mention}さんの参加予定確認
 ```
 Fes Stage1: {"参加   〇" if targetdb.stage1 is True else "不参加 ✖"}
 Fes Stage2: {"参加   〇" if targetdb.stage2 is True else "不参加 ✖"}
@@ -205,7 +205,6 @@ EXPO Day3 : {"参加   〇" if targetdb.day3 is True else "不参加 ✖"}
 ```
 """
             embed = discord.Embed(
-                title=f"7th-Fes/EXPO\n{target.mention}さんの参加予定確認",
                 description=DESC,
                 color=0x5EDEEC
             )
