@@ -195,17 +195,17 @@ EXPO Day3 : {"参加   〇" if targetdb.day3 is True else "不参加 ✖"}
                 return
             DESC = f"""参加予定
 ```
-Fes Stage1: {"参加" if targetdb.stage1 is True else "不参加"}
-Fes Stage2: {"参加" if targetdb.stage2 is True else "不参加"}
-Fes Stage3: {"参加" if targetdb.stage3 is True else "不参加"}
-Fes Stage4: {"参加" if targetdb.stage4 is True else "不参加"}
-EXPO Day1 : {"参加" if targetdb.day1 is True else "不参加"}
-EXPO Day2 : {"参加" if targetdb.day2 is True else "不参加"}
-EXPO Day3 : {"参加" if targetdb.day3 is True else "不参加"}
+Fes Stage1: {"参加   〇" if targetdb.stage1 is True else "不参加 ✖"}
+Fes Stage2: {"参加   〇" if targetdb.stage2 is True else "不参加 ✖"}
+Fes Stage3: {"参加   〇" if targetdb.stage3 is True else "不参加 ✖"}
+Fes Stage4: {"参加   〇" if targetdb.stage4 is True else "不参加 ✖"}
+EXPO Day1 : {"参加   〇" if targetdb.day1 is True else "不参加 ✖"}
+EXPO Day2 : {"参加   〇" if targetdb.day2 is True else "不参加 ✖"}
+EXPO Day3 : {"参加   〇" if targetdb.day3 is True else "不参加 ✖"}
 ```
 """
             embed = discord.Embed(
-                title=f"7th-Fes/EXPO {target.display_name}さんの参加予定確認",
+                title=f"7th-Fes/EXPO\n{target.mention}さんの参加予定確認",
                 description=DESC,
                 color=0x5EDEEC
             )
