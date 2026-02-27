@@ -13,7 +13,7 @@ class DayNotice(commands.Cog):
     async def send_task(self):
         now = datetime.now()
         ch = await self.bot.fetch_channel(config.channels.expo_fes)
-        DESCRIPTION = """開催まであとrest日"""
+        DESCRIPTION = """# 開催まであとrest日"""
         countdown_embed = discord.Embed(
             title="hololive SUPER EXPO 2026\n&\nhololive 7th fes. Ridin’ on Dreams",
             description=DESCRIPTION,
