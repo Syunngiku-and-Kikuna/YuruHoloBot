@@ -2,6 +2,7 @@ import discord
 import asyncio
 from os import listdir
 from discord.ext import commands
+from datetime import datetime
 
 from config import config
 
@@ -15,10 +16,10 @@ class MyBot(commands.Bot):
             if name.endswith(".py") and not name.startswith("_"):
                 f = f"cogs.{name.replace('.py', '')}"
                 await self.load_extension(f)
-                print(f"[{f}] が正常にロードされました.")
+                print(f"[{datetime.now().strftime('%Y/%m/%d %H:%M:%S')}] 「{f}」が正常にロードされました.")
 
     async def on_ready(self):
-        print("ログインしました")
+        print(f"[{datetime.now().strftime('%Y/%m/%d %H:%M:%S')}] ログインしました")
         await self.load_extension("jishaku")
         await self.tree.sync()
 
