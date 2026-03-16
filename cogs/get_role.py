@@ -10,7 +10,7 @@ class GetRole(commands.Cog):
     @app_commands.command(name="get_role", description="サーバー内の全ロールを取得します")
     async def get_role(self, interaction: discord.Interaction):
         for role in interaction.guild.roles:
-            print(role.name)
+            print(f"await interaction.guild.create_role(name='{role.name}', color=discord.Color.from_str(\"#\"))")
         await interaction.response.send_message("サーバー内の全ロールをコンソールに出力しました。", ephemeral=True)
 
     @app_commands.command(name="create_role", description="ロールを作成します")
