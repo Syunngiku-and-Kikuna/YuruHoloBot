@@ -3,7 +3,7 @@ from discord import app_commands
 from discord.ext import commands
 
 
-class CTemplate(commands.Cog):
+class GetRole(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
@@ -15,4 +15,4 @@ class CTemplate(commands.Cog):
 
 
 async def setup(bot: commands.Bot):
-    await bot.add_cog(CTemplate(bot))
+    await bot.add_cog(GetRole(bot))
