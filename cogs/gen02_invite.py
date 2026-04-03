@@ -15,6 +15,7 @@ class InviteButton(View):
     @button(label="02世代鯖に参加申請を送る", style=ButtonStyle.success, custom_id="gen02_invite_button")
     async def gen02invitebutton(self, interaction: Interaction, button: Button):
         ch = await self.bot.fetch_channel(config.channels.test_bot_ch1)
+        await interaction.response.send_message("参加申請を送信しました。招待されるまで今しばらくお待ちください。", ephemeral=True)
         await ch.send(f"参加申請: {interaction.user.mention} ({interaction.user.name} / {interaction.user.id})")
 
 
@@ -34,3 +35,4 @@ class Gen02Invite(commands.Cog):
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Gen02Invite(bot))
+    bot.add_view(InviteButton(bot))
