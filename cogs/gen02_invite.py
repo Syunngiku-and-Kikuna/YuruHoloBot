@@ -1,8 +1,6 @@
-import discord
 from discord import ButtonStyle, Interaction, app_commands
 from discord.ext import commands
 from discord.ui import Button, View, button
-import random
 
 from config import config
 
@@ -23,14 +21,10 @@ class Gen02Invite(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name="gen02", description="【運営】世代鯖参加申請用のコマンド")
+    @app_commands.command(name="gen02", description="02世代鯖へ参加申請を送る")
     async def gen02invite(self, interaction: Interaction):
-        if interaction.user.id != config.syunngiku_id:
-            await interaction.response.send_message("このコマンドは使用できません。", ephemeral=True)
-            return
         view = InviteButton(self.bot)
-        await interaction.response.send_message("送信完了", ephemeral=True)
-        await interaction.channel.send(view=view)
+        await interaction.response.send_message("02世代鯖へ参加申請を送りますか？\n送る場合は下のボタンを押してください。", view=view, ephemeral=True)
 
 
 async def setup(bot: commands.Bot):
